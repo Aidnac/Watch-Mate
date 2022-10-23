@@ -34,7 +34,14 @@ class WatchListSerializer(serializers.ModelSerializer):
 
 class StreamPlatformSerializer(serializers.ModelSerializer):
     watchlist = WatchListSerializer(many=True, read_only=True)
-
+    # if you want to return only one field
+    # watchlist = serializers.StringRelatedField(many=True)
+    # if you want to return only links
+    # watchlist = serializers.HyperlinkedRelatedField(
+    #     many=True,
+    #     read_only=True,
+    #     view_name='movie-detail'
+    # )
     class Meta:
         model = StreamPlatform
         fields = "__all__"
