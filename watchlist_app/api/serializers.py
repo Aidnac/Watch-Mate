@@ -32,7 +32,7 @@ class WatchListSerializer(serializers.ModelSerializer):
     #     return value
 
 
-class StreamPlatformSerializer(serializers.ModelSerializer):
+class StreamPlatformSerializer(serializers.HyperlinkedModelSerializer):
     watchlist = WatchListSerializer(many=True, read_only=True)
     # if you want to return only one field
     # watchlist = serializers.StringRelatedField(many=True)
